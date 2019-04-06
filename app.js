@@ -6,6 +6,8 @@ const session = require('express-session');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const errorHandler = require('errorhandler');
+const db = 'mongodb://kirupa:raja12@ds245772.mlab.com:45772/passportauth'
+// const db ='mongodb://localhost:27017/passport'
 
 //Configure mongoose's promise to global promise
 mongoose.promise = global.Promise;
@@ -29,7 +31,7 @@ if(!isProduction) {
 }
 
 //Configure Mongoose
-mongoose.connect('mongodb://localhost:27017/passport',()=>{
+mongoose.connect(db,()=>{
     console.log('MongoDB connected')
 });
 mongoose.set('debug', true);
